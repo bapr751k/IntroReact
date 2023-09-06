@@ -1,5 +1,8 @@
 import React from 'react'
 import './Style.css'
+
+
+
 const Monedas = ({monedas}) => {
     return (
         <div className='container'>
@@ -16,22 +19,21 @@ const Monedas = ({monedas}) => {
                             <h3 className="id-coin">
                                 Id: {item.id}
                             </h3>
-                            
                             <p className="price-coin">
-                               Precio actual: {item.current_price}
+                                Precio actual: {item.current_price}
                             </p>
                             <p className="volumen-coin">
-                              Volumen Total:  {item.total_volume}
+                                Volumen Total:  {item.total_volume}
                             </p>
                             <p className="price-coin24h">
-                               Precion de cambio 24 hrs: {item.price_change_24h}
+                                Precion de cambio 24 hrs: {item.price_change_24h}
                             </p>
                         </div>
                         </div>
 
                         </div>
                     ))
-                }
+                    }
             </div>
         </div>
     )

@@ -10,8 +10,6 @@ const Pagination = ({prev, next, onPrevious, onNext}) => {
         onNext()
     }
 
-
-
   return (
     <nav className="my-6">
         <ul className="pagination justify-content-center">

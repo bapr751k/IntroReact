@@ -1,34 +1,36 @@
-import { Component, useState } from 'react'
+import React, {useState} from 'react'
+import Bitcoins from '../Assets/Coin.png'
+import '../Coins/Style.css'
 
-const {useState} = React;
-
-const busqueda = () => {
-  const [state, setState] = useState({
-    monedaVirtual:''
-  });
-  
-  const handleInputChange = (e) => {
-    setState({
-      // usamos el operador spread para propagar los estados de los demas atributos del objeto state
-      ...state,
-      [e.target.monedaVirtual]: e.target.value
-    })
+export default function Busqueda({ onSearch }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(searchTerm);
   }
 
   return (
-    <form>
-      <label for="moneda">busqueda de Moneda:</label>      
-      <input
-        type="text"
-        name="moneda"
-        onChange={handleInputChange}
-      />
-      <h2>Se ingreso el nombre: {state.monedaVirtual}</h2>
-      <button type="submit">buscar</button>
-    </form>    
+    <>
+      <img className="imagenBit" src={Bitcoins} alt="logo"/>
+      <h2>Buscar moneda virtual</h2> 
+      <div className="input-group row">
+        <form className="d-flex" onSubmit={handleSearch}>
+          <input
+            className="form-control me-4"
+            type="search"
+            placeholder="Busqueda"
+            aria-label="Search"
+            value={searchTerm}
+            onChange={(e)=> setSearchTerm(e.target.value)}
+          />
+          <button className="btn btn-success" type="submit">
+            buscar
+          </button>
+        </form>
+      </div>    
+    </>
+  
   );
+
 };
 
-export default busqueda
-
-//ReactDOM.render(<Formulario />, document.getElementById("app"));
